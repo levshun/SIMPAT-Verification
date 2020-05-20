@@ -1,0 +1,111 @@
+#  cps_composition.dat: data file for daTac
+
+#1
+# AC operators: (list of op1, op2, ...)
+.
+
+#2
+# C operators: (list of op1, op2, ...)
+=
+
+#3
+# Minimal operator:
+empty
+
+#4
+# Precedence ordering on operators:
+available > { component  ,  has , system , slot ,  male , female , motor ,
+              battery , wheel , plug , empty }
+system > {plug}
+slot > {plug , has }
+
+#5
+# Status of operators:
+=, . : multiset
+
+#6
+# Strategy for applying inferences:
+res
+
+#7
+# Theory: (list of clauses)
+=> empty.empty = empty
+exists(available(x1.system(slot(male,x3).x4,x2).system(slot(female,x3).x6,x5)))
+=> exists(available(x1.system(x4.x6,plug(x2,x5))))
+=> exists(available(empty.system(slot(female,wheel).slot(female,battery).slot(female,
+  motor).empty,chassis0).system(slot(female,wheel).slot(female,battery).slot(female,
+  motor).empty,chassis1).system(slot(male,motor).has(motor).empty,motor).system(slot
+  (male,wheel).has(wheel).empty,wheel).system(slot(male,battery).has(battery).empty,
+  battery)) )
+
+#8
+# Negation of the conjecture: (list of clauses)
+exists( available(x1.system(has(wheel).has(motor).has(battery).x3,x2)) ) => 
+
+#9
+# Maximal number of clauses:
+1000
+
+#10
+# Use of uncomplete AC-unification:
+true
+
+#11
+# Maximal number of AC-MGUs: (0 -> no limit)
+0
+
+#12
+# Use of simplification rules:
+true
+
+#121
+# Use of Otter-like strategy for simplification:
+true
+
+#122
+# Maximal depth for simplification: (0 -> no limit)
+0
+
+#14
+# Subsumption algorithm: (4: AC-matching)
+4
+
+#15
+# Use of other reduction rules:
+true
+
+#16
+# Maximal size of a clause: (0 -> no limit)
+0
+
+#23
+# Maximal number of variables in a clause: (0 -> no limit)
+0
+
+#17
+# Trace degree: (1: Inferences)
+1
+
+#18
+# Research strategy: (2: Complete)
+2
+
+#19
+# Preference for:  (0: No preference)
+0
+
+#20
+# Try to simplify before the test of subsumption:
+true
+
+#21
+# Use of Superposition Strategy:  (false -> Paramodulation)
+true
+
+#211
+# Maximal depth for superposition/paramodulation: (0 -> no limit)
+0
+
+#22
+# Use of particular treatment for non-equational literals:
+false
